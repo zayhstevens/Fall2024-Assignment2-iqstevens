@@ -36,3 +36,20 @@ $(function() {
     });
 });
 
+$(function() {
+    $("#lucky").button();
+
+    //$("#Search").click(function() {
+       // apiSearch();
+   // });
+});
+
+$(function() {
+    $("#tiktok").button();
+
+    // $("#Search").click(function() {
+    //     apiSearch();
+    // });
+});
+
+

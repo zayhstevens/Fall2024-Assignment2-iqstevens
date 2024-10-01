@@ -25,18 +25,28 @@ html {
     background-position: center center; 
   }
 
+  h1{
+    color:#2d5fb1;
+  }
+
   #query{
     padding: 10px;
     margin: 15px;
     width: 60%;
   }
 
-  #Search{
-    background-color: black;
-    color: white;
+  #Search, #lucky{
+    flex: 1;
+    flex-basis: 0;
     padding: 10px 20px;
     border: none;
+    margin: 10px;
     border-radius: 5px;
+  }
+
+  #tiktok{
+    margin: 20px;
+    width: 20%
   }
 
   #searchResults{
@@ -47,11 +57,18 @@ html {
     visibility: hidden;
   }
 
-  #flexy{
+  #parflex{
     display:flex;
     flex-direction:column;
     justify-content: center;
     align-items: center;
+  }
+
+  #kidflex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 60%;
   }
 
 
