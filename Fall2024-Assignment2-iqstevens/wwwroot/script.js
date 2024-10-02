@@ -61,10 +61,10 @@ $("#hetle").click( function (){
     flag = !flag;
 
     if(flag){
-        $('body').css('background-image', 'url("wolf2")').slideDown(500);
+        $('body').css('background-image', 'url("icywold.jpg")');
     }
     else{
-        $('body').css('background-image', 'url("icywold")').slideUp(500);
+        $('body').css('background-image', 'url("wolf2.jpg")');
     }
 
 
