@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-function apiSearch() {
+function apiSearch(isLuck) {
     var params = {
         'q': $('#query').val(),
         'count': 50,
@@ -16,6 +16,10 @@ function apiSearch() {
         }
     })
         .done(function (data) {
+            if(isLuck) {
+                window.location.href = data.webPages.value[0].url;
+            }
+            else{
             var len = data.webPages.value.length;
             var results = '';
             for (i = 0; i < len; i++) {
@@ -23,36 +27,50 @@ function apiSearch() {
             }
 
             $('#searchResults').html(results);
-            $('#searchResults').dialog();
+            $('#searchResults').dialog({
+                height: $(window).height()
+            });
+        }
         })
         .fail(function () {
             alert('error');
         });
+        $('#searchResults').css('visibility', 'visible');
 }
 
 $(function() {
     $("#Search").button();
 
     $("#Search").click(function() {
-        apiSearch();
+        apiSearch(false);
     });
 });
 
 $(function() {
     $("#lucky").button();
 
-    //$("#Search").click(function() {
-       // apiSearch();
-   // });
+    $("#lucky").click(function() {
+       apiSearch(true);
+   });
 });
 
 $(function() {
     $("#tiktok").button();
 
-    // $("#Search").click(function() {
-    //     apiSearch();
-    // });
+    $("#tiktok").click(function() {
+    var moment = new Date();
+    var hours = String(moment.getHours()).padStart(2, '0');
+    var mins = String(moment.getMinutes()).padStart(2, '0');
+    $('#time').html ("Time: <br>" + hours + ":"+ mins);
+    $('#time').dialog({
+        height: 100,
+        width: 100
+    });
+    $('#time').css('visibility', 'visible');
 });
+});
+
+$('#query').addClass('ui-widget ui-widget-content ui-corner-all');
 
 var flag = false;
 
