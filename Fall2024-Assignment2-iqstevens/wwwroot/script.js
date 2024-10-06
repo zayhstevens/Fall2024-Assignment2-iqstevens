@@ -44,7 +44,15 @@ $(function() {
     $("#Search").click(function() {
         apiSearch(false);
     });
+
+    $('#query').keypress(function(event) {
+        if (event.which === 13) { 
+            apiSearch(false);
+            event.preventDefault();
+        }
+    });
 });
+
 
 $(function() {
     $("#lucky").button();
