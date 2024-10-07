@@ -23,19 +23,21 @@ function apiSearch(isLuck) {
             var len = data.webPages.value.length;
             var results = '';
             for (i = 0; i < len; i++) {
-                results += `<p><a href="${data.webPages.value[i].url}">${data.webPages.value[i].name}</a>: ${data.webPages.value[i].snippet}</p>`;
+                results += `<p><a href="${data.webPages.value[i].url}">${data.webPages.value[i].name}</a><br> ${data.webPages.value[i].snippet}</p>`;
             }
 
             $('#searchResults').html(results);
-            $('#searchResults').dialog({
-                height: $(window).height()
+            $('#searchResults').css({
+                'visibility': 'visible',
+                'max-height': '55vh',
+                'overflow-y': 'auto',
+                'background-color': 'rgba(173, 216, 230, 0.9)' 
             });
         }
         })
         .fail(function () {
             alert('error');
         });
-        $('#searchResults').css('visibility', 'visible');
 }
 
 $(function() {
@@ -67,9 +69,13 @@ $(function() {
 
     $("#tiktok").click(function() {
     var moment = new Date();
-    var hours = String(moment.getHours()).padStart(2, '0');
+    var hours = moment.getHours();
+    var meridiem = hours >= 12 ? 'p.m.' : 'a.m.';
+    hours %= 12;
+    hours = hours ? hours : 12;
+
     var mins = String(moment.getMinutes()).padStart(2, '0');
-    $('#time').html ("Time: <br>" + hours + ":"+ mins);
+    $('#time').html ("Time: <br>" + hours + ":"+ mins + " "+ meridiem);
     $('#time').dialog({
         height: 100,
         width: 100
