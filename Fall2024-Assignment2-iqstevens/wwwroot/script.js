@@ -31,7 +31,8 @@ function apiSearch(isLuck) {
                 'visibility': 'visible',
                 'max-height': '55vh',
                 'overflow-y': 'auto',
-                'background-color': 'rgba(173, 216, 230, 0.9)' 
+                'background-color': 'rgba(173, 216, 230, 0.9)',
+                'width': '75%' 
             });
         }
         })
